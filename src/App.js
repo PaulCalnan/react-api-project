@@ -8,24 +8,34 @@ class App extends Component {
     super();
 
     this.state = {
-      avatar1: {
-        name: 'Paul'
-      },
-      avatar2: {
-        name: 'Mack'
-      },
-      avatar3: {
-        name: 'Tiff'
-      }
+      avatars:[
+        {
+          name: 'Paul',
+          id: 1
+        },
+        {
+          name: 'Mack',
+          id: 2
+        },
+        {
+          name: 'Tiff',
+          id: 3
+        }
+      ]    
     };
   }
 
   render() {
     return (
       <div className="App">
-        <h1>{this.state.avatar1.name}</h1>
-        <h1>{this.state.avatar2.name}</h1>
-        <h1>{this.state.avatar3.name}</h1>
+        {
+          this.state.avatars.map((avatar) => {
+            return (
+              <div key={avatar.id}>
+                <h1>{avatar.name}</h1>
+              </div>
+            );
+          })}
       </div>
     );
   }
