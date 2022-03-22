@@ -25,14 +25,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {
-          this.state.avatars.map((avatar) => {
-            return (
-              <div key={avatar.id}>
-                <h1>{avatar.name}</h1>
-              </div>
-            );
-          })}
+        <input 
+          className='search-box' 
+          type='search' 
+          placeholder='Find Friends' 
+          onChange={(event) => {}}
+        />
+        {this.state.avatars.map((avatar) => {
+          return (
+            <div key={avatar.id}>
+              <h1>{avatar.name}</h1>
+            </div>
+          );
+        })}
       </div>
     );
   }
