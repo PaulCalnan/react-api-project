@@ -8,7 +8,8 @@ class App extends Component {
     super();
 
     this.state = {
-      avatars: []    
+      avatars: [],
+      searchField: ''    
     };
   }
 
@@ -23,15 +24,26 @@ class App extends Component {
   }
 
   render() {
+
+    const filteredAvatarNames = this.state.avatars.filter((avatarName) => {
+      return avatarName.name.toLowerCase().includes(this.state.searchField);
+    });
+
+
     return (
       <div className="App">
         <input 
           className='search-box' 
           type='search' 
           placeholder='Find Friends' 
-          onChange={(event) => {}}
+          onChange={(event) => {
+            const searchField = event.target.value.toLowerCase();
+            this.setState(() => {
+              return { searchField };
+            });
+          }}
         />
-        {this.state.avatars.map((avatar) => {
+        {filteredAvatarNames.map((avatar) => {
           return (
             <div key={avatar.id}>
               <h1>{avatar.name}</h1>
