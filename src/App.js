@@ -16,17 +16,31 @@ class App extends Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
-      .then((users) => this.setState(() => { 
-        return {avatars: users}
-      },
-      () => {console.log(this.state);}
-      ));
+      .then((users) => 
+        this.setState(
+          () => { 
+            return {avatars: users}
+          },
+          () => {
+            console.log(this.state);
+          }
+        )
+      );
   }
 
-  render() {
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLowerCase();
+    this.setState(() => {
+      return { searchField };
+    });
+  };
 
-    const filteredAvatarNames = this.state.avatars.filter((avatarName) => {
-      return avatarName.name.toLowerCase().includes(this.state.searchField);
+  render() {
+    // destructure from state and cast to variables so that 'this' keyword can be removed from following code
+    const { avatars, searchField } = this.state;
+    const { onSearchChange } = this;
+    const filteredAvatarNames = avatars.filter((avatarName) => {
+      return avatarName.name.toLowerCase().includes(searchField);
     });
 
 
@@ -36,12 +50,7 @@ class App extends Component {
           className='search-box' 
           type='search' 
           placeholder='Find Friends' 
-          onChange={(event) => {
-            const searchField = event.target.value.toLowerCase();
-            this.setState(() => {
-              return { searchField };
-            });
-          }}
+          onChange={onSearchChange}
         />
         {filteredAvatarNames.map((avatar) => {
           return (
@@ -53,6 +62,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;
