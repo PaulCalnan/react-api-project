@@ -1,4 +1,6 @@
 import { Component } from 'react';
+
+import CardList from './components/card-list/card-list.component';
 import './App.css';
 import React from 'react';
 
@@ -52,13 +54,14 @@ class App extends Component {
           placeholder='Find Friends' 
           onChange={onSearchChange}
         />
-        {filteredAvatarNames.map((avatar) => {
+        {/* {filteredAvatarNames.map((avatar) => {
           return (
             <div key={avatar.id}>
               <h1>{avatar.name}</h1>
             </div>
           );
-        })}
+        })} */}
+        <CardList />
       </div>
     );
   }
