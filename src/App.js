@@ -22,9 +22,6 @@ class App extends Component {
         this.setState(
           () => { 
             return {avatars: users}
-          },
-          () => {
-            console.log(this.state);
           }
         )
       );
@@ -54,14 +51,7 @@ class App extends Component {
           placeholder='Find Friends' 
           onChange={onSearchChange}
         />
-        {/* {filteredAvatarNames.map((avatar) => {
-          return (
-            <div key={avatar.id}>
-              <h1>{avatar.name}</h1>
-            </div>
-          );
-        })} */}
-        <CardList />
+        <CardList avatars={filteredAvatarNames} />
       </div>
     );
   }
