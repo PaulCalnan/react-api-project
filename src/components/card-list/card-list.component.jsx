@@ -11,7 +11,14 @@ class CardList extends Component {
       <div>
         {avatars.map(avatar => (
           //Use key id to prevent react warning that each child should have a unique key prop
-          <h1 key={avatar.id}>{avatar.name}</h1>
+          <div className='card-container' key={avatar.id}>
+            <img 
+              alt={`avatar ${avatar.name}`} 
+              src={`https://avatars.dicebear.com/api/adventurer/${avatar.id}.svg?size=180`} 
+            />
+            <h2>{avatar.name}</h2>
+            <p>{avatar.email}</p>
+          </div>
         ))}
       </div>
     )
