@@ -6,11 +6,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(0,79,128);
   background: linear-gradient(
-    to left,
-    rgba(51, 54, 118, 1) 0%,
-    rgba(127, 129, 177, 1) 100%
-  );
+    90deg, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,221,255,1) 51%,
+    rgba(0,0,0,1) 100%
+    );
   text-align: center;
 }
 
