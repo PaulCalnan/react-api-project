@@ -13,7 +13,7 @@ class CardList extends Component {
       <div className='card-list'>
         {avatars.map((avatar) => {
           return(
-            <Card avatar={avatar}/>
+            <Card avatar={avatar} />
           );
         })}
       </div>
