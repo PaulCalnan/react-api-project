@@ -7,6 +7,7 @@ class Card extends Component {
   render() {
     //destructuring from props
     const { id, name, email } = this.props.avatar;
+    const [firstName, lastName] = name.split(' ');
     
     return (
      
@@ -16,7 +17,8 @@ class Card extends Component {
           alt={`avatar ${name}`} 
           src={`https://avatars.dicebear.com/api/adventurer/${id}.svg?size=180`} 
         />
-        <h2>{name}</h2>
+        <h2 className='card-name'>{firstName}</h2>
+        <h2 className='card-name'>{lastName}</h2>
         <p>{email}</p>
       </div>
     )}}
